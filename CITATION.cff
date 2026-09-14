@@ -1,8 +1,11 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite this repository and the underlying data providers."
-title: "Heating the City, Clearing the Air?"
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Tuparev"
+    given-names: "Philip Alexander"
+    orcid: "https://orcid.org/0009-0009-9529-0410"
+title: "Am I breathing cleaner air? | Дишам ли по-чист въздух?"
 type: software
-version: 0.1.0
-date-released: 2026-09-01
+version: "0.9"
 license: MIT
 repository-code: "https://github.com/patupar/sofia-lez-counterfactual"

@@ -23,21 +23,18 @@ def main():
         fontsize=14,
         fontweight="bold",
     )
-    for ax, (period, title) in zip(axes, PERIODS.items(), strict=True):
-        base_map(ax, points, districts, style, title)
+    for index, (ax, (period, title)) in enumerate(
+        zip(axes, PERIODS.items(), strict=True)
+    ):
+        side = "left" if index == 0 else "right"
+        base_map(ax, points, districts, style, title, y_axis_side=side)
         rows = summary.loc[summary.counterfactual_period == period]
         artist = difference_points(
             ax, points, rows, "mean_observed_minus_predicted", cmap, norm, style
         )
     colour_bar(fig, artist)
     map_legend(fig, style)
-    save_figure(
-        fig,
-        style,
-        "03_counterfactual_difference",
-        "Means use matched QC-valid observations. "
-        "Differences include model error and are not causal LEZ estimates.",
-    )
+    save_figure(fig, style, "03_counterfactual_difference")
 
 
 if __name__ == "__main__":

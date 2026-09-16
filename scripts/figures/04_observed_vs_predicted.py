@@ -150,6 +150,38 @@ def draw_panel(ax, table, title, limit, cmap, outline):
     return artist
 
 
+def draw_zoom_inset(ax, table, zoom_limit, full_limit, cmap, outline):
+    inset = ax.inset_axes([0.55, 0.52, 0.41, 0.41])
+    gridsize = max(12, round(55 * zoom_limit / full_limit))
+    artist = inset.hexbin(
+        table[OBSERVED],
+        table[PREDICTED],
+        gridsize=gridsize,
+        extent=(0, zoom_limit, 0, zoom_limit),
+        mincnt=1,
+        cmap=cmap,
+        linewidths=0,
+    )
+    inset.plot(
+        [0, zoom_limit],
+        [0, zoom_limit],
+        linestyle="--",
+        color=outline,
+        linewidth=0.9,
+    )
+    inset.set(xlim=(0, zoom_limit), ylim=(0, zoom_limit), aspect="equal")
+    inset.set_title(f"Zoom: 0–{zoom_limit} µg/m³", fontsize=8, pad=3)
+    inset.grid(color="#E7E7E5", linewidth=0.4, zorder=0)
+    inset.set_axisbelow(True)
+    inset.tick_params(direction="in", top=True, right=True, labelsize=7)
+    inset.xaxis.set_major_formatter(StrMethodFormatter("{x:.0f}"))
+    inset.yaxis.set_major_formatter(StrMethodFormatter("{x:.0f}"))
+    for label in inset.get_xticklabels() + inset.get_yticklabels():
+        label.set_fontfamily("IBM Plex Mono")
+    ax.indicate_inset_zoom(inset, edgecolor=outline, linewidth=0.7, alpha=0.6)
+    return artist
+
+
 def main():
     style, output_directory, validation, holdout = read_inputs()
     colours = style["colours"]
@@ -157,9 +189,10 @@ def main():
         "sofia_density", ["#FFF8F9", colours["sensor"], colours["positive"]]
     )
     limit = rounded_limit(validation, holdout)
+    zoom_limit = min(60, limit)
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 6.3), sharex=True, sharey=True)
-    fig.subplots_adjust(left=0.08, right=0.96, bottom=0.20, top=0.84, wspace=0.16)
+    fig.subplots_adjust(left=0.08, right=0.96, bottom=0.18, top=0.84, wspace=0.16)
     fig.suptitle("Observed and Random Forest predicted PM₂.₅", fontsize=14, fontweight="bold")
 
     artists = [
@@ -181,9 +214,20 @@ def main():
         ),
     ]
 
-    maximum_count = max(float(artist.get_array().max()) for artist in artists)
+    inset_artists = [
+        draw_zoom_inset(
+            axes[0], validation, zoom_limit, limit, cmap, colours["outline"]
+        ),
+        draw_zoom_inset(
+            axes[1], holdout, zoom_limit, limit, cmap, colours["outline"]
+        ),
+    ]
+
+    maximum_count = max(
+        float(artist.get_array().max()) for artist in [*artists, *inset_artists]
+    )
     density_norm = LogNorm(vmin=1, vmax=maximum_count)
-    for artist in artists:
+    for artist in [*artists, *inset_artists]:
         artist.set_norm(density_norm)
 
     colour_ax = fig.add_axes([0.34, 0.105, 0.32, 0.025])
@@ -192,13 +236,6 @@ def main():
     for label in colour_bar.ax.get_xticklabels():
         label.set_fontfamily("IBM Plex Mono")
 
-    fig.text(
-        0.5,
-        0.025,
-        "Dashed line indicates exact agreement. Points above the line are overpredicted.",
-        ha="center",
-        fontsize=8.5,
-    )
     output_directory.mkdir(parents=True, exist_ok=True)
     for extension in ["png", "pdf"]:
         path = output_directory / f"04_observed_vs_predicted.{extension}"

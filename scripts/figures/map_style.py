@@ -1,4 +1,4 @@
-"""Shared inputs and appearance for the three report maps."""
+"""Shared inputs and appearance for the two report maps."""
 
 import argparse
 from pathlib import Path
@@ -81,7 +81,9 @@ def read_inputs(description):
     return config, style, summary, points, districts
 
 
-def base_map(ax, points, districts, style, title):
+def base_map(ax, points, districts, style, title, *, top_labels=False, y_axis_side="left"):
+    if y_axis_side not in {"left", "right", "both"}:
+        raise ValueError("y_axis_side must be 'left', 'right' or 'both'.")
     colours = style["colours"]
     fills = districts[style["lez_column"]].map({0: colours["other"], 1: colours["lez"]})
     districts.plot(ax=ax, color=fills, edgecolor=colours["outline"], linewidth=0.55)
@@ -93,11 +95,21 @@ def base_map(ax, points, districts, style, title):
     ax.yaxis.set_major_locator(MaxNLocator(4))
     ax.xaxis.set_major_formatter(StrMethodFormatter("{x:.0f}"))
     ax.yaxis.set_major_formatter(StrMethodFormatter("{x:.0f}"))
-    ax.tick_params(direction="in", top=True, right=True, labelsize=8)
+    ax.tick_params(
+        direction="in",
+        top=True,
+        right=True,
+        labeltop=top_labels,
+        labelleft=y_axis_side in {"left", "both"},
+        labelright=y_axis_side in {"right", "both"},
+        labelsize=8,
+    )
     for label in ax.get_xticklabels() + ax.get_yticklabels():
         label.set_fontfamily("IBM Plex Mono")
     ax.set_xlabel("Easting (m)")
     ax.set_ylabel("Northing (m)")
+    if y_axis_side == "right":
+        ax.yaxis.set_label_position("right")
     # Scale bar uses projected map metres. Its position follows the shared extent.
     left, right = ax.get_xlim()
     bottom, top = ax.get_ylim()
@@ -203,11 +215,10 @@ def colour_bar(fig, artist):
         label.set_fontsize(9)
 
 
-def save_figure(fig, style, name, note):
-    fig.text(0.5, 0.04, note, ha="center", fontsize=8)
+def save_figure(fig, style, name):
     fig.text(
         0.5,
-        0.015,
+        0.025,
         f"Philip Tuparev | {style['crs']} | Districts: SofiaPlan (2017)",
         ha="center",
         fontsize=8,

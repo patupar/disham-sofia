@@ -1,6 +1,6 @@
 # Paths are relative to the repository root. Keep modelling settings in pipeline.yaml.
-districts: data/raw/boundaries/sofia_districts.gpkg
-district_layer: null  # Set the layer name if the GeoPackage contains several layers.
+districts: data/raw/boundaries/sofia_districts.geojson
+district_layer: null
 lez_column: lez  # Integer 1 = district covered by the heating LEZ; 0 = other district.
 font_directory: data/raw/fonts  # Optional: local IBM Plex .ttf/.otf files, including subfolders.
 output_directory: outputs/figures/spatial

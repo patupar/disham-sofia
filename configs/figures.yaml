@@ -1,0 +1,19 @@
+# Paths are relative to the repository root. Keep modelling settings in pipeline.yaml.
+districts: data/raw/boundaries/sofia_districts.gpkg
+district_layer: null  # Set the layer name if the GeoPackage contains several layers.
+lez_column: lez  # Integer 1 = district covered by the heating LEZ; 0 = other district.
+font_directory: data/raw/fonts  # Optional: local IBM Plex .ttf/.otf files, including subfolders.
+output_directory: outputs/figures/spatial
+diagnostics_output_directory: outputs/figures/diagnostics
+crs: EPSG:32634  # UTM 34N: metres, suitable for a scale bar in Sofia.
+padding_m: 1800
+# Approximate colours sampled from the supplied JPEG. Replace with QGIS hex values
+# here if the original style uses slightly different values.
+colours:
+  lez: '#F7EDA6'
+  other: '#DEDEDC'
+  sensor: '#F2A4B1'
+  outline: '#383836'
+  negative: '#397B96'
+  zero: '#FFFFFF'
+  positive: '#BD526F'

@@ -21,6 +21,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+figures = ["geopandas>=1,<2", "matplotlib>=3.8,<4"]
 dev = ["ruff>=0.6", "pytest>=8", "pytest-cov>=5"]
 
 [project.scripts]

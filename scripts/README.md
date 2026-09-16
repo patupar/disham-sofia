@@ -1,5 +1,8 @@
 # Workflow scripts
 
+Report maps are kept separately in [`figures/`](figures/README.md). These three plotting
+scripts use completed model outputs and share the report's IBM Plex typography and map colours.
+
 The numbered scripts make the seminar workflow explicit. Stages 1–7b prepare the sensor,
 meteorological and LCZ data. Stages 8–12 construct, validate and apply the counterfactual model.
 

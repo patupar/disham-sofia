@@ -1,15 +1,14 @@
 # Paths are relative to the repository root. Keep modelling settings in pipeline.yaml.
 districts: data/raw/boundaries/sofia_districts.geojson
 district_layer: null
-lez_column: lez  # Integer 1 = district covered by the heating LEZ; 0 = other district.
-font_directory: data/raw/fonts  # Optional: local IBM Plex .ttf/.otf files, including subfolders.
+lez_column: lez  .
+font_directory: data/raw/fonts  # Perhaps: local IBM Plex .ttf/.otf files, including subfolders.
 output_directory: outputs/figures/spatial
 diagnostics_output_directory: outputs/figures/diagnostics
-crs: EPSG:32634  # UTM 34N: metres, suitable for a scale bar in Sofia.
+crs: EPSG:32634
 padding_m: 1800
-# Approximate colours sampled from the supplied JPEG. Replace with QGIS hex values
-# here if the original style uses slightly different values.
-colours:
+
+colours: # colour items
   lez: '#F7EDA6'
   other: '#DEDEDC'
   sensor: '#F2A4B1'

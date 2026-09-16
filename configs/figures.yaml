@@ -1,7 +1,7 @@
 # Paths are relative to the repository root. Keep modelling settings in pipeline.yaml.
 districts: data/raw/boundaries/sofia_districts_lez.geojson
 district_layer: null
-lez_column: lez  .
+lez_column: lez
 font_directory: data/raw/fonts  # Perhaps: local IBM Plex .ttf/.otf files, including subfolders.
 output_directory: outputs/figures/spatial
 diagnostics_output_directory: outputs/figures/diagnostics

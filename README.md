@@ -29,6 +29,11 @@ source .venv/bin/activate
 python -m pip install -e ".[dev]"
 ```
 
+The complete raw inputs used for the reported run are distributed separately from Git through a
+versioned HeiBOX package. The exact archive inventory, expected paths, checksum procedure and
+restoration steps are documented in [`data/README.md`](data/README.md). The public HeiBOX URL will
+be added there after upload.
+
 Stage 6 uses the Copernicus Climate Data Store (CDS) API. Create a CDS account, accept the
 licence for the ERA5 single-level dataset, and place the personal access token outside the
 repository in `~/.cdsapirc`:
@@ -48,7 +53,7 @@ monthly NetCDF file and validates every requested hour. Requests are submitted o
 time to remain below the CDS request-cost limit. A complete `.part` response retained after
 an interruption or validation error is checked and recovered before a new request is submitted.
 
-Prepare the two historical FILTER inputs:
+When the HeiBOX package is not used, prepare the two historical FILTER inputs manually:
 
 ```text
 data/raw/filter/Sensor_Location.csv

@@ -1,11 +1,5 @@
 """Build the Sofia historical location-sensor manifest."""
 
-'''
-AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used throughout development
-for assistance with syntax, debugging and testing, as well as for fleshing out implementation details
-within parts of the codebase. The methodological workflow, modelling decisions, data processing choices
-and interpretation of results were determined by the author.
-'''
 from __future__ import annotations
 
 import re
@@ -17,6 +11,14 @@ import pandas as pd
 
 from .config import ensure_parent
 from .spatial import boundary_bounds, load_polygons, point_in_boundary
+
+'''
+AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used
+throughout development for assistance with syntax, debugging and testing, as well
+as for fleshing out implementation details within parts of the codebase. The
+methodological workflow, modelling decisions, data processing choices and
+interpretation of results were determined by the author.
+'''
 
 PAIR_PATTERN = re.compile(r"^(SC(?P<location>\d+))_(?P<sensor>\d+)\.csv$", re.IGNORECASE)
 

@@ -1,17 +1,18 @@
 """Small, dependency-light GeoJSON point-in-polygon helpers."""
 
-'''
-AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used throughout development
-for assistance with syntax, debugging and testing, as well as for fleshing out implementation details
-within parts of the codebase. The methodological workflow, modelling decisions, data processing choices
-and interpretation of results were determined by the author.
-'''
 from __future__ import annotations
 
 import json
 from collections.abc import Iterable
 from pathlib import Path
 
+'''
+AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used
+throughout development for assistance with syntax, debugging and testing, as well
+as for fleshing out implementation details within parts of the codebase. The
+methodological workflow, modelling decisions, data processing choices and
+interpretation of results were determined by the author.
+'''
 
 def _point_in_ring(x: float, y: float, ring: list[list[float]]) -> bool:
     """Return True when a point is inside or on a linear ring."""

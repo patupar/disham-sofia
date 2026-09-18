@@ -1,11 +1,5 @@
 """Extract archive observations, reconstruct hours, and apply explicit QC."""
 
-'''
-AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used throughout development
-for assistance with syntax, debugging and testing, as well as for fleshing out implementation details
-within parts of the codebase. The methodological workflow, modelling decisions, data processing choices
-and interpretation of results were determined by the author.
-'''
 from __future__ import annotations
 
 import re
@@ -15,6 +9,14 @@ import numpy as np
 import pandas as pd
 
 from .config import ensure_parent
+
+'''
+AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used
+throughout development for assistance with syntax, debugging and testing, as well
+as for fleshing out implementation details within parts of the codebase. The
+methodological workflow, modelling decisions, data processing choices and
+interpretation of results were determined by the author.
+'''
 
 ARCHIVE_PATTERN = re.compile(r"(?P<date>\d{4}-\d{2}-\d{2})_sensor_(?P<sensor>\d+)\.csv(?:\.gz)?$")
 

@@ -1,11 +1,5 @@
 """Map sensor-level RF errors during the pre-LEZ autumn 2024 robustness check."""
 
-'''
-AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used throughout development
-for assistance with syntax, debugging and testing, as well as for fleshing out implementation details
-within parts of the codebase. The methodological workflow, modelling decisions, data processing choices
-and interpretation of results were determined by the author.
-'''
 import matplotlib.pyplot as plt
 from map_style import (
     base_map,
@@ -17,6 +11,13 @@ from map_style import (
     save_figure,
 )
 
+'''
+AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used
+throughout development for assistance with syntax, debugging and testing, as well
+as for fleshing out implementation details within parts of the codebase. The
+methodological workflow, modelling decisions, data processing choices and
+interpretation of results were determined by the author.
+'''
 
 def main():
     config, style, summary, points, districts = read_inputs(__doc__)

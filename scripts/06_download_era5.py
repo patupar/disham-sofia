@@ -1,16 +1,17 @@
 """Stage 6: download reproducible hourly ERA5 chunks for the stable-panel area."""
 
-'''
-AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used throughout development
-for assistance with syntax, debugging and testing, as well as for fleshing out implementation details
-within parts of the codebase. The methodological workflow, modelling decisions, data processing choices
-and interpretation of results were determined by the author.
-'''
 import argparse
 
 from sofia_lez.config import load_config
 from sofia_lez.meteorology import download_era5
 
+'''
+AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used
+throughout development for assistance with syntax, debugging and testing, as well
+as for fleshing out implementation details within parts of the codebase. The
+methodological workflow, modelling decisions, data processing choices and
+interpretation of results were determined by the author.
+'''
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)

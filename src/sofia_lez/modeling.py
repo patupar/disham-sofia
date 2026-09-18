@@ -1,11 +1,5 @@
 """Model validation, selection, training and counterfactual prediction."""
 
-'''
-AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used throughout development
-for assistance with syntax, debugging and testing, as well as for fleshing out implementation details
-within parts of the codebase. The methodological workflow, modelling decisions, data processing choices
-and interpretation of results were determined by the author.
-'''
 from __future__ import annotations
 
 import json
@@ -24,6 +18,14 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 
 from .config import ensure_parent
+
+'''
+AI Notice: Generative AI models, in particular OpenAI's ChatGPT 5.5, were used
+throughout development for assistance with syntax, debugging and testing, as well
+as for fleshing out implementation details within parts of the codebase. The
+methodological workflow, modelling decisions, data processing choices and
+interpretation of results were determined by the author.
+'''
 
 PAIR_COLUMNS = ["location", "location_id", "sensor_id", "lat", "lon"]
 JOIN_COLUMNS = ["location_id", "sensor_id", "date"]

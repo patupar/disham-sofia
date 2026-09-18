@@ -103,17 +103,6 @@ Stage 9 evaluates the complete configured Random Forest grid but does not select
 Selection must use the blocked validation diagnostics rather than the autumn 2024 result. Stage 9b
 records the decision and then evaluates the frozen candidate on that recent holdout.
 
-If time permits, compare Gradient Boosting on exactly the same folds before selecting the RF:
-
-```bash
-python scripts/09c_validate_gradient_boosting.py --config configs/pipeline.yaml
-```
-
-Or run the workflow through RF candidate validation:
-
-```bash
-sofia-lez --config configs/pipeline.yaml run --include-provisional-panel --include-modeling
-```
 
 Use `--skip-download` when the Sensor.Community archive is already cached and
 `--skip-era5-download` when the ERA5 NetCDF chunks are already cached.

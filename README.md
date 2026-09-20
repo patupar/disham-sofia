@@ -1,4 +1,4 @@
-# Am I breathing cleaner air? | Дишам ли по-чист въздух?
+# DISHAM — Am I breathing cleaner air? | Дишам ли по-чист въздух?
 
 ## Prelude
 
@@ -21,8 +21,8 @@ Model predictions reflect expected PM2.5 concentrations in absence of the LEZ in
 The following setup is used on macOS. Python 3.11 or newer is required.
 
 ```bash
-git clone https://github.com/patupar/sofia-lez-counterfactual.git
-cd sofia-lez-counterfactual
+git clone https://github.com/patupar/disham-sofia.git
+cd disham-sofia
 
 python -m venv .venv
 source .venv/bin/activate          

@@ -12,7 +12,7 @@ PM2.5 measurements.
 
 Daily PM2.5 observations from BGAir’s community-operated sensor network are used, as at the point writing, Sofia's regulatory monitoring network exhibits spatial coverage to an unsatisfactory extend. A secondary objective that has arisen through this work is exploring whether community-operate sensor networks and volunteered geographic information as a whole, can be leveraged in the study of Sofia's urban environment and potentially inform public decision making.    
 
-Random forest models trained on pre-intervention observations from 2018–2024 predict PM2.5 concentrations during the heating
+Random forest models trained on pre-intervention observations from 2018–2024 predict PM₂.₅ concentrations during the heating
 periods between January 2025 and March 2026, accounting for meteorological and temporal variation.
 Model predictions reflect expected PM2.5 concentrations in absence of the LEZ intervention.
 

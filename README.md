@@ -1,4 +1,4 @@
-# DISHAM — Am I breathing cleaner air? | Дишам ли по-чист въздух?
+# DISHAM Sofia — Am I breathing cleaner air? | Дишам ли по-чист въздух?
 
 ## Prelude
 
@@ -137,9 +137,8 @@ to a separate JSON record. The post-LEZ response is never used for model selecti
 ## Documentation
 The repository contains two complementary records:
 
-- [`docs/seminar_methodology.md`](docs/seminar_methodology.md) describes the technical
-  methodology, data-processing rules and relationship between the methodological stages and the
-  code;
+- [`docs/seminar_methodology.md`](docs/seminar_methodology.md) documents the methodological process,
+  data-processing decisions and considerations that informed the current workflow and codebase;
 - [`docs/research_log.md`](docs/research_log.md) records commands, outputs, data checks,
   methodological decisions and problems encountered during the development of the project.
 

@@ -1,10 +1,10 @@
-# DISHAM Sofia — Am I breathing cleaner air? | Дишам ли по-чист въздух?
+# DISHAM for Sofia — Am I breathing cleaner air? | Дишам ли по-чист въздух?
 
 ## Prelude
 
-This repository holds the codebase for a seminar paper initially conceived for the Institute of Geography, Ruprecht-Karl-University Heidelberg. The goal of this work is to present a reproducible counterfactual study of the recently introduced residential-heating low-emission zone (LEZ) in Sofia, Bulgaria. Later versions will aim to bring this academic work to public use. Ultimately, residents of Sofia should be able to observe on a day-by-day basis whether air quality in their neighbourhood has actually improved as a result of the LEZ intervention.   
+DISHAM (Data-Informed Sofia Heating Air-quality Modelling) for Sofia was initially conceived as part of a seminar for the Institute of Geography, Ruprecht-Karl-University Heidelberg for the project _Counterfactual Assessment of Sofia’s Residential Heating Low-EmissionZone: Applying Its Community-Operated Sensor Network with RandomForests_. The goal of this work is to present a reproducible counterfactual study of the recently introduced residential-heating low-emission zone (LEZ) in Sofia, Bulgaria. Later versions will aim to bring this academic work to public use. Ultimately, residents of Sofia should be able to observe on a day-by-day basis whether air quality in their neighbourhood has actually improved as a result of the LEZ intervention.   
 
-## General information: 'Counterfactual Assessment of Sofia's Residential Heating Low Emission Zone'
+## General information: 'Counterfactual Assessment of Sofia’s Residential Heating Low-EmissionZone: Applying Its Community-Operated Sensor Network with RandomForests'
 On the 1 January 2025, Sofia implemented Europe’s first low-emission zone (LEZ) targeting residential heating. The
 intervention prohibits the use of solid-fuels in buildings across nine districts, given operational district-heating or gas distribution networks are available. The codebase for the above mentioned study presents an exploratory counterfactual assessment of changes in ambient PM2.5 concentrations following the intervention. To the author’s
 knowledge, it is the first such assessment of Sofia’s residential-heating LEZ to use post-intervention

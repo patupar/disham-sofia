@@ -30,9 +30,9 @@ python -m pip install -e ".[dev]"
 ```
 
 The complete raw inputs used for the reported run are distributed separately from Git through a
-versioned HeiBOX package. The exact archive inventory, expected paths, checksum procedure and
-restoration steps are documented in [`data/README.md`](data/README.md). The public HeiBOX URL will
-be added there after upload.
+[HeiBOX package](https://heibox.uni-heidelberg.de/d/a257a83f0f7d438c9e8b/). The exact archive
+inventory, expected paths, checksum procedure and restoration steps are documented in
+[`data/README.md`](data/README.md).
 
 Stage 6 uses the Copernicus Climate Data Store (CDS) API. Create a CDS account, accept the
 licence for the ERA5 single-level dataset, and place the personal access token outside the
@@ -150,13 +150,19 @@ The [`scripts/README.md`](scripts/README.md) lists the numbered workflow stages,
 
 `sample_data/` contains a tiny synthetic polygon, location table, historical pair files, and
 one Sensor.Community-style archive file. It is intentionally small and exists only to test the
-software contract:
+software contract rather than reproduce the reported analysis:
 
 ```bash
 make sample
 make test
 make lint
 ```
+
+To reproduce the workflow with the full raw inputs used for the reported run, download the
+[HeiBOX data package](https://heibox.uni-heidelberg.de/d/a257a83f0f7d438c9e8b/) and restore the
+archives to their repository-relative paths. The archive contents, checksums and restoration
+procedure are documented in [`data/README.md`](data/README.md). With the archived Sensor.Community
+and ERA5 inputs restored, the corresponding download stages can be skipped.
 
 Continuous integration repeats linting, unit tests, and the sample end-to-end workflow on every
 push and pull request.

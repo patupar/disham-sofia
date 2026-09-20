@@ -4,8 +4,8 @@ authors:
   - family-names: "Tuparev"
     given-names: "Philip Alexander"
     orcid: "https://orcid.org/0009-0009-9529-0410"
-title: "Am I breathing cleaner air? | Дишам ли по-чист въздух?"
+title: "DISHAM — Am I breathing cleaner air? | Дишам ли по-чист въздух?"
 type: software
 version: "0.9"
 license: MIT
-repository-code: "https://github.com/patupar/sofia-lez-counterfactual"
+repository-code: "https://github.com/patupar/disham-sofia"

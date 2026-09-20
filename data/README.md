@@ -7,7 +7,7 @@ The full source datasets are kept outside Git. Only the small synthetic files un
 
 The exact raw inputs used for the reported run are distributed separately through HeiBOX.
 
-**HeiBOX download:** pending upload
+**HeiBOX download:** https://heibox.uni-heidelberg.de/d/a257a83f0f7d438c9e8b/
 
 Upload the following four archives, together with `SHA256SUMS.txt`. Each archive should retain
 the repository-relative paths shown below so that it can be extracted directly into the repository
